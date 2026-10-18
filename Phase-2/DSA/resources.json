@@ -1,0 +1,181 @@
+{
+  "DSA": {
+    "Arrays": {
+      "title": "Arrays in C",
+      "difficulty": "Easy",
+      "estimated_time": "45 mins",
+      "description": "Fundamental contiguous data structure supporting constant-time index access and sequential memory traversal.",
+      "youtube": [
+        {
+          "title": "Arrays in C Programming - Full Tutorial by Neso Academy",
+          "url": "https://www.youtube.com/watch?v=1uR4tL-UugM"
+        },
+        {
+          "title": "Array Data Structure in 10 Minutes - Bro Code",
+          "url": "https://www.youtube.com/watch?v=4TgtQ_5970M"
+        }
+      ],
+      "practice": [
+        {
+          "platform": "LeetCode #1",
+          "title": "Two Sum (Array Search)",
+          "url": "https://leetcode.com/problems/two-sum/"
+        },
+        {
+          "platform": "LeetCode #26",
+          "title": "Remove Duplicates from Sorted Array",
+          "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+        },
+        {
+          "platform": "GeeksforGeeks",
+          "title": "Array Data Structure Complete Practice",
+          "url": "https://www.geeksforgeeks.org/array-data-structure-guide/"
+        }
+      ]
+    },
+    "Stack": {
+      "title": "Stack (LIFO) in C",
+      "difficulty": "Medium",
+      "estimated_time": "60 mins",
+      "description": "LIFO linear structure essential for expression parsing, backtracking, and call-stack management.",
+      "youtube": [
+        {
+          "title": "Stack Data Structure - Introduction and Array Implementation (Neso Academy)",
+          "url": "https://www.youtube.com/watch?v=sFVxsglODoo"
+        },
+        {
+          "title": "Valid Parentheses using Stack - NeetCode",
+          "url": "https://www.youtube.com/watch?v=WTzjT244D1E"
+        }
+      ],
+      "practice": [
+        {
+          "platform": "LeetCode #20",
+          "title": "Valid Parentheses (Classic Stack Problem)",
+          "url": "https://leetcode.com/problems/valid-parentheses/"
+        },
+        {
+          "platform": "LeetCode #155",
+          "title": "Min Stack Implementation",
+          "url": "https://leetcode.com/problems/min-stack/"
+        },
+        {
+          "platform": "GeeksforGeeks",
+          "title": "Stack Data Structure Operations & Problems",
+          "url": "https://www.geeksforgeeks.org/stack-data-structure/"
+        }
+      ]
+    },
+    "Queue": {
+      "title": "Queue (FIFO) & Circular Queue in C",
+      "difficulty": "Medium",
+      "estimated_time": "60 mins",
+      "description": "FIFO linear structure used in operating system scheduling, print buffering, and breadth-first search.",
+      "youtube": [
+        {
+          "title": "Queue Data Structure & Circular Queue - Abdul Bari",
+          "url": "https://www.youtube.com/watch?v=okr-XE8yTO8"
+        },
+        {
+          "title": "Queue Implementation in C - Jenny's Lectures",
+          "url": "https://www.youtube.com/watch?v=dn0MTs4wAHA"
+        }
+      ],
+      "practice": [
+        {
+          "platform": "LeetCode #622",
+          "title": "Design Circular Queue",
+          "url": "https://leetcode.com/problems/design-circular-queue/"
+        },
+        {
+          "platform": "LeetCode #232",
+          "title": "Implement Queue using Stacks",
+          "url": "https://leetcode.com/problems/implement-queue-using-stacks/"
+        },
+        {
+          "platform": "GeeksforGeeks",
+          "title": "Queue Data Structure Full Guide",
+          "url": "https://www.geeksforgeeks.org/queue-data-structure/"
+        }
+      ]
+    }
+  },
+  "OOPS": {
+    "Classes_Objects": {
+      "title": "Classes and Objects in C++",
+      "difficulty": "Easy",
+      "estimated_time": "40 mins",
+      "description": "The building blocks of OOP. Blueprint (Class) and real-world instances (Objects) with state and behavior.",
+      "youtube": [
+        {
+          "title": "C++ Classes and Objects - The Cherno",
+          "url": "https://www.youtube.com/watch?v=2BP8Nhxjr1I"
+        }
+      ],
+      "practice": [
+        {
+          "platform": "HackerRank",
+          "title": "Classes and Objects in C++",
+          "url": "https://www.hackerrank.com/challenges/classes-objects/problem"
+        }
+      ]
+    },
+    "Constructors": {
+      "title": "Constructors and Destructors in C++",
+      "difficulty": "Easy",
+      "estimated_time": "45 mins",
+      "description": "Special member functions automatically invoked to initialize and clean up object memory (Default, Parameterized, Copy).",
+      "youtube": [
+        {
+          "title": "Constructors in C++ - The Cherno",
+          "url": "https://www.youtube.com/watch?v=FXhALMsHwEY"
+        }
+      ],
+      "practice": [
+        {
+          "platform": "GeeksforGeeks",
+          "title": "Constructors in C++ Practice Problems",
+          "url": "https://www.geeksforgeeks.org/constructors-c/"
+        }
+      ]
+    },
+    "Inheritance": {
+      "title": "Inheritance in C++",
+      "difficulty": "Medium",
+      "estimated_time": "50 mins",
+      "description": "Code reuse mechanism where derived classes inherit data members and member functions from base classes.",
+      "youtube": [
+        {
+          "title": "Inheritance in C++ - The Cherno",
+          "url": "https://www.youtube.com/watch?v=X8nYM8wdNRE"
+        }
+      ],
+      "practice": [
+        {
+          "platform": "HackerRank",
+          "title": "Inheritance Introduction in C++",
+          "url": "https://www.hackerrank.com/challenges/inheritance-introduction/problem"
+        }
+      ]
+    },
+    "Polymorphism": {
+      "title": "Polymorphism & Virtual Functions in C++",
+      "difficulty": "Medium",
+      "estimated_time": "55 mins",
+      "description": "Compile-time (function/operator overloading) and runtime (virtual functions and dynamic binding) polymorphism.",
+      "youtube": [
+        {
+          "title": "Virtual Functions and Runtime Polymorphism in C++ - The Cherno",
+          "url": "https://www.youtube.com/watch?v=oIV2K4NhEAo"
+        }
+      ],
+      "practice": [
+        {
+          "platform": "LeetCode #704",
+          "title": "Object Oriented Design & Function Overriding",
+          "url": "https://leetcode.com/problemset/all/"
+        }
+      ]
+    }
+  }
+}
