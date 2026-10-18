@@ -1,0 +1,47 @@
+[
+  {
+    "id": "rw-1",
+    "title": "College Cafeteria Coffee Pass",
+    "cost": 60,
+    "category": "Campus Perks",
+    "icon": "☕",
+    "description": "Redeem for 1 artisanal hot coffee or cappuccino at the campus student cafeteria.",
+    "terms": "Valid for demonstration during Phase-II evaluation."
+  },
+  {
+    "id": "rw-2",
+    "title": "SkillArc Dev Sticker Pack",
+    "cost": 80,
+    "category": "Swag",
+    "icon": "🏷️",
+    "description": "Pack of 5 waterproof vinyl stickers featuring C, C++, DSA, and SkillArc logos.",
+    "terms": "Collect from Team Apex at the project stall."
+  },
+  {
+    "id": "rw-3",
+    "title": "Central Library Reserved Desk (1 Week)",
+    "cost": 120,
+    "category": "Academic",
+    "icon": "📚",
+    "description": "Guaranteed quiet-zone study desk with power outlet for 1 exam study week.",
+    "terms": "Subject to campus library demonstration allocation."
+  },
+  {
+    "id": "rw-4",
+    "title": "Annual College Hackathon Fast-Track Entry",
+    "cost": 180,
+    "category": "Events",
+    "icon": "🎟️",
+    "description": "Skip preliminary shortlisting and enter the 36-hour hackathon directly.",
+    "terms": "Demonstration student privilege for high credit achievers."
+  },
+  {
+    "id": "rw-5",
+    "title": "AI/GPU Server 10 Cloud Hours",
+    "cost": 250,
+    "category": "Computing",
+    "icon": "💻",
+    "description": "10 compute hours on college high-performance NVIDIA GPU cluster for project training.",
+    "terms": "Granted for advanced PBL contributors."
+  }
+]

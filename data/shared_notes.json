@@ -1,0 +1,46 @@
+[
+  {
+    "id": "note-1",
+    "topic": "Arrays",
+    "author": "Rohan Deshmukh",
+    "student_id": "2510370211",
+    "title": "Trick to remember 2D Array row-major vs column-major",
+    "content": "In C, 2D arrays are stored in Row-Major order! Formula for element (i, j): Address = Base + (i * TotalColumns + j) * sizeof(element). Remember: in C, the rightmost index changes fastest!",
+    "timestamp": "2026-10-14 14:30",
+    "likes": 12,
+    "is_sample": true
+  },
+  {
+    "id": "note-2",
+    "topic": "Stack",
+    "author": "Ananya Sharma",
+    "student_id": "2510370188",
+    "title": "Quick mnemonic for Postfix evaluation",
+    "content": "Whenever you encounter an operand (number), push to stack. Whenever you encounter an operator (+, -, *, /), pop two operands, apply operator: second_popped <op> first_popped, and push the result back!",
+    "timestamp": "2026-10-15 11:15",
+    "likes": 19,
+    "is_sample": true
+  },
+  {
+    "id": "note-3",
+    "topic": "Queue",
+    "author": "Kavya Nair",
+    "student_id": "2510370420",
+    "title": "Circular Queue condition without confusion",
+    "content": "Why is (rear + 1) % SIZE == front full? Because we leave one slot empty or check if incrementing rear hits front. Drawing a clock face makes circular queue 10x easier to explain in vivas!",
+    "timestamp": "2026-10-15 16:45",
+    "likes": 15,
+    "is_sample": true
+  },
+  {
+    "id": "note-4",
+    "topic": "Inheritance",
+    "author": "Tanisha Rai",
+    "student_id": "2510370080",
+    "title": "Difference between private vs protected inheritance",
+    "content": "In public inheritance, public stays public, protected stays protected. In protected inheritance, both become protected. In private inheritance, everything inherited becomes private in the derived class!",
+    "timestamp": "2026-10-16 09:20",
+    "likes": 24,
+    "is_sample": true
+  }
+]

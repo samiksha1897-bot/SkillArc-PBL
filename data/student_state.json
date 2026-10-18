@@ -1,0 +1,249 @@
+{
+  "active_student": "2510370080",
+  "students": {
+    "2510370150": {
+      "id": "2510370150",
+      "name": "Samiksha Gurung",
+      "email": "samiksha1897@gmail.com",
+      "role": "Team Lead & DSA Specialist",
+      "department": "B.Tech CSE \u2014 2nd Year (Sec B)",
+      "avatar": "\ud83d\udc69\u200d\ud83d\udcbb",
+      "credits": 95,
+      "streak_days": 4,
+      "completed_topics": [
+        "Arrays",
+        "Stack"
+      ],
+      "in_progress_topics": [
+        "Stack",
+        "Queue"
+      ],
+      "quiz_history": {
+        "Arrays": {
+          "score": 4,
+          "total": 4,
+          "percentage": 100.0,
+          "points_awarded": 40,
+          "attempted_at": "2026-10-15 16:30"
+        }
+      },
+      "badges": [
+        "streak_starter",
+        "quiz_whiz",
+        "first_step"
+      ],
+      "redemptions": [
+        {
+          "reward_id": "rw-1",
+          "title": "College Cafeteria Coffee Pass",
+          "cost": 60,
+          "voucher": "ARC-RW-1-5528",
+          "date": "2026-10-16 21:55"
+        },
+        {
+          "reward_id": "rw-1",
+          "title": "College Cafeteria Coffee Pass",
+          "cost": 60,
+          "date": "2026-10-15 17:00"
+        }
+      ],
+      "recent_activity": [
+        {
+          "action": "Completed topic 'Stack (LIFO)' (+15 pts)",
+          "time": "02:11 PM"
+        },
+        {
+          "action": "Redeemed 'College Cafeteria Coffee Pass' (-60 pts)",
+          "time": "09:55 PM"
+        },
+        {
+          "action": "Completed topic 'Arrays'",
+          "time": "Yesterday, 4:15 PM"
+        },
+        {
+          "action": "Scored 100% on Arrays Quiz (+40 pts)",
+          "time": "Yesterday, 4:30 PM"
+        },
+        {
+          "action": "Redeemed Cafeteria Coffee Pass (-60 pts)",
+          "time": "Yesterday, 5:00 PM"
+        },
+        {
+          "action": "Logged in for 4-day learning streak",
+          "time": "Today, 9:00 AM"
+        }
+      ]
+    },
+    "2510370530": {
+      "id": "2510370530",
+      "name": "Vaibhavi Thapliyal",
+      "email": "vaibhavithapliyal23@gmail.com",
+      "role": "Interface & Gamification Lead",
+      "department": "B.Tech CSE \u2014 2nd Year (Sec B)",
+      "avatar": "\ud83d\udc69\u200d\ud83c\udfa8",
+      "credits": 160,
+      "streak_days": 5,
+      "completed_topics": [
+        "Arrays"
+      ],
+      "in_progress_topics": [
+        "Queue",
+        "Classes_Objects"
+      ],
+      "quiz_history": {
+        "Arrays": {
+          "score": 4,
+          "total": 4,
+          "percentage": 100.0,
+          "points_awarded": 40,
+          "attempted_at": "2026-10-14 10:20"
+        },
+        "Stack": {
+          "score": 3,
+          "total": 4,
+          "percentage": 75.0,
+          "points_awarded": 30,
+          "attempted_at": "2026-10-15 14:10"
+        }
+      },
+      "badges": [
+        "first_step",
+        "streak_starter",
+        "quiz_whiz"
+      ],
+      "redemptions": [],
+      "recent_activity": [
+        {
+          "action": "Marked 'Stack (LIFO)' as In-Progress",
+          "time": "02:13 PM"
+        },
+        {
+          "action": "Completed topic 'Arrays'",
+          "time": "2 days ago"
+        },
+        {
+          "action": "Completed topic 'Stack'",
+          "time": "Yesterday, 2:10 PM"
+        },
+        {
+          "action": "Logged in for 5-day learning streak",
+          "time": "Today, 8:45 AM"
+        }
+      ]
+    },
+    "2510370080": {
+      "id": "2510370080",
+      "name": "Tanisha Rai",
+      "email": "tanishaarai17@gmail.com",
+      "role": "C++ OOP & Engine Lead",
+      "department": "B.Tech CSE \u2014 2nd Year (Sec B)",
+      "avatar": "\ud83d\udc69\u200d\ud83d\udd2c",
+      "credits": 165,
+      "streak_days": 4,
+      "completed_topics": [
+        "Classes_Objects",
+        "Constructors",
+        "Stack"
+      ],
+      "in_progress_topics": [
+        "Inheritance",
+        "Polymorphism"
+      ],
+      "quiz_history": {
+        "Classes_Objects": {
+          "score": 3,
+          "total": 3,
+          "percentage": 100.0,
+          "points_awarded": 30,
+          "attempted_at": "2026-10-15 18:00"
+        }
+      },
+      "badges": [
+        "streak_starter",
+        "quiz_whiz",
+        "cpp_cadet",
+        "first_step"
+      ],
+      "redemptions": [],
+      "recent_activity": [
+        {
+          "action": "Completed topic 'Stack (LIFO)' (+15 pts)",
+          "time": "02:13 PM"
+        },
+        {
+          "action": "Shared note on Inheritance in C++ (+10 pts)",
+          "time": "Today, 9:20 AM"
+        },
+        {
+          "action": "Completed topic 'Classes and Objects'",
+          "time": "Yesterday, 6:00 PM"
+        },
+        {
+          "action": "Logged in for 4-day learning streak",
+          "time": "Today, 9:15 AM"
+        }
+      ]
+    }
+  },
+  "leaderboard_sample": [
+    {
+      "rank": 1,
+      "name": "Aditya Verma",
+      "id": "2510370012",
+      "credits": 280,
+      "streak": 9,
+      "badges": 6
+    },
+    {
+      "rank": 2,
+      "name": "Pooja Hegde",
+      "id": "2510370344",
+      "credits": 230,
+      "streak": 7,
+      "badges": 5
+    },
+    {
+      "rank": 3,
+      "name": "Vaibhavi Thapliyal",
+      "id": "2510370530",
+      "credits": 160,
+      "streak": 5,
+      "badges": 4,
+      "is_team": true
+    },
+    {
+      "rank": 4,
+      "name": "Tanisha Rai",
+      "id": "2510370080",
+      "credits": 150,
+      "streak": 4,
+      "badges": 4,
+      "is_team": true
+    },
+    {
+      "rank": 6,
+      "name": "Samiksha Gurung",
+      "id": "2510370150",
+      "credits": 95,
+      "streak": 4,
+      "badges": 3,
+      "is_team": true
+    },
+    {
+      "rank": 5,
+      "name": "Rohan Deshmukh",
+      "id": "2510370211",
+      "credits": 110,
+      "streak": 3,
+      "badges": 3
+    },
+    {
+      "rank": 7,
+      "name": "Kavya Nair",
+      "id": "2510370420",
+      "credits": 95,
+      "streak": 2,
+      "badges": 2
+    }
+  ]
+}

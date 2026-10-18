@@ -1,0 +1,167 @@
+/* SkillArc Modern Student Dashboard Stylesheet */
+:root {
+  --primary-navy: #0f172a;
+  --secondary-navy: #1e293b;
+  --accent-purple: #4f46e5;
+  --accent-indigo: #6366f1;
+  --accent-blue: #2563eb;
+  --bg-light: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --text-muted: #64748b;
+  --success-green: #10b981;
+  --warning-amber: #f59e0b;
+}
+
+/* Base Body Adjustments */
+.main .block-container {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  max-width: 1100px;
+}
+
+/* Wordmark & Brand */
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+.brand-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.brand-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #e0e7ff;
+  color: #4338ca;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+/* Metric / Stat Cards */
+.metric-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+.metric-label {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 4px;
+}
+
+.metric-sub {
+  font-size: 0.8rem;
+  color: #4f46e5;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* Topic Card */
+.topic-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.topic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.topic-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.badge-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.badge-easy { background-color: #ecfdf5; color: #047857; }
+.badge-medium { background-color: #eff6ff; color: #1d4ed8; }
+.badge-hard { background-color: #fef2f2; color: #b91c1c; }
+
+.status-completed { color: #059669; font-weight: 600; }
+.status-inprogress { color: #d97706; font-weight: 600; }
+.status-unstarted { color: #64748b; font-weight: 500; }
+
+/* Custom Badge Pill */
+.achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin: 4px;
+}
+
+.achievement-badge.unlocked {
+  background-color: #f5f3ff;
+  border-color: #c4b5fd;
+  color: #5b21b6;
+}
+
+.achievement-badge.locked {
+  opacity: 0.55;
+  filter: grayscale(80%);
+}
+
+/* Sidebar Custom Details */
+.sidebar-user {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+.sidebar-user h4 {
+  color: #ffffff !important;
+  margin: 0 0 4px 0;
+  font-size: 1.05rem;
+}
+.sidebar-user p {
+  color: #c7d2fe !important;
+  font-size: 0.8rem;
+  margin: 0;
+}

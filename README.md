@@ -133,20 +133,36 @@ The project is being developed in multiple phases as part of the PBL process.
 * Development roadmap prepared.
 * Phase 1 report and presentation completed.
 
-### Phase 2 — In Progress
+### Phase 2 — Completed (Prototype Evaluation Build)
 
-The development of the actual SkillArc platform is currently underway.
+The working interactive prototype for Phase 2 has been completed:
 
-The Phase 2 development focuses on implementing the core modules and features planned during Phase 1, including:
+* **DSA Learning Roadmap & Modules:** Arrays, Stack, and Queue with concept notes, C code implementations, and curated YouTube/LeetCode resources.
+* **C++ OOP Learning Modules & Engine:** Classes & Objects, Constructors, Inheritance, and Polymorphism, backed by a native C++ OOP quiz engine (`quiz_engine.cpp`) implementing `Student` and `Question` classes.
+* **Streamlit Interface & Dashboard:** Modern navy/purple student dashboard with real-time streak tracking, completion metrics, and sidebar navigation.
+* **Interactive Quizzes:** Multi-question topic-wise quizzes with answer review, explanations, and anti-abuse credit point awards.
+* **Gamification & Rewards:** Credit point wallet, unlocked/locked achievement badges, student leaderboard, and redeemable campus perks.
+* **Notes & Peer Learning:** Interactive community study notes with local persistence.
 
-* DSA learning roadmap
-* Topic and module organization
-* Learning resources
-* C++ and OOPs learning content
-* Interface development
-* Quizzes and practice
-* Student progress tracking
-* Gamification features
+---
+
+## How to Run the Phase-2 Prototype
+
+### 1. Run the Streamlit Web Application
+From the repository root directory:
+```bash
+python -m streamlit run app.py
+```
+Or double-click `run_skillarc.bat` on Windows. The application will launch in your browser at `http://localhost:8501`.
+
+### 2. Run the C++ OOP Quiz Engine (Terminal Mode)
+To compile and test the standalone C++ OOP module:
+```bash
+g++ -std=c++17 Phase-2/OOPS/quiz_engine.cpp -o Phase-2/OOPS/quiz_engine.exe
+./Phase-2/OOPS/quiz_engine.exe
+```
+
+---
 
 ### Phase 3 — Upcoming
 
@@ -156,13 +172,13 @@ Further development, integration, testing, and improvements will be carried out 
 
 ## Current Project Status
 
-**Status: Under Active Development**
+**Status: Phase-II Prototype Completed & Ready for Evaluation**
 
 | Phase                                   | Status         |
 | --------------------------------------- | -------------- |
 | Phase 1 – Planning & Documentation      | Completed    |
-| Phase 2 – Core Development              | In Progress |
-| Phase 3 – Further Development & Testing | Upcoming     |
+| Phase 2 – Core Prototype Development    | Completed    |
+| Phase 3 – Full Integration & Testing    | Upcoming     |
 
 ---
 
@@ -170,11 +186,12 @@ Further development, integration, testing, and improvements will be carried out 
 
 The project work is divided among the three team members:
 
-* **Samiksha Gurung:** DSA-related content, roadmap, and development.
-* **Vaibhavita Bhalyal:** User interface and interface-related development.
-* **Tanisha Rai:** OOPs and C++-related development.
+* **Samiksha Gurung (Team Lead):** DSA roadmap, concept notes, C code implementations, and practice problem curation for Arrays, Stack, and Queue.
+* **Vaibhavi Thapliyal:** Streamlit dashboard interface, visual design, progress & streak tracking, gamification UI, and sidebar navigation.
+* **Tanisha Rai:** C++ OOP learning modules (Classes, Constructors, Inheritance, Polymorphism) and C++ OOP quiz engine with `Student` and `Question` classes.
 
-Individual contributions will also be reflected through the GitHub commit history as the project progresses.
+Individual contributions are reflected through the modular project structure and Git history.
+
 
 ---
 
