@@ -1,0 +1,191 @@
+{
+  "Arrays": [
+    {
+      "id": 1,
+      "question": "What is the time complexity of accessing an element at a given index in a 1D array?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+      "correct": 0,
+      "points": 10,
+      "explanation": "Arrays provide constant time O(1) random access because the memory address is computed directly: Base Address + (Index × Element Size)."
+    },
+    {
+      "id": 2,
+      "question": "In C programming, how is array indexing zero-based represented in memory?",
+      "options": [
+        "First element starts at index 1",
+        "arr[i] is internally evaluated as *(arr + i)",
+        "Negative indexing is natively supported",
+        "Array elements are dynamically scattered in heap memory"
+      ],
+      "correct": 1,
+      "points": 10,
+      "explanation": "In C, arr[i] is syntactically equivalent to *(arr + i). Since the offset from the base address of the 0th element is 0, indexing begins at 0."
+    },
+    {
+      "id": 3,
+      "question": "What is the worst-case time complexity of inserting an element at the beginning of an array of size n?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "correct": 2,
+      "points": 10,
+      "explanation": "Inserting at the beginning requires shifting all n existing elements one position to the right, taking O(n) time."
+    },
+    {
+      "id": 4,
+      "question": "What happens if you access an index beyond the declared size of an array in C (e.g. arr[10] for int arr[5])?",
+      "options": [
+        "A compile-time syntax error is raised",
+        "An ArrayIndexOutOfBoundsException is thrown",
+        "Undefined behavior / segmentation fault occurs",
+        "The array automatically doubles its capacity"
+      ],
+      "correct": 2,
+      "points": 10,
+      "explanation": "C does not perform runtime array bounds checking. Accessing out-of-bounds indices leads to undefined behavior or segmentation fault."
+    }
+  ],
+  "Stack": [
+    {
+      "id": 1,
+      "question": "Which data structure principle does a Stack strictly follow?",
+      "options": ["FIFO (First In, First Out)", "LIFO (Last In, First Out)", "Priority Based", "Random Access"],
+      "correct": 1,
+      "points": 10,
+      "explanation": "A stack follows Last-In First-Out (LIFO), meaning the most recently added item is the first one removed."
+    },
+    {
+      "id": 2,
+      "question": "What condition represents 'Stack Overflow' in an array-based implementation of capacity MAX?",
+      "options": ["top == -1", "top == 0", "top == MAX - 1", "top == MAX / 2"],
+      "correct": 2,
+      "points": 10,
+      "explanation": "In 0-indexed arrays of size MAX, the highest valid index is MAX - 1. When top == MAX - 1, the stack is full."
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is NOT a standard application of a Stack?",
+      "options": [
+        "Parentheses matching in compilers",
+        "Function call stack during recursion",
+        "CPU Round-Robin process scheduling",
+        "Undo / Redo operation in text editors"
+      ],
+      "correct": 2,
+      "points": 10,
+      "explanation": "CPU Round-Robin process scheduling uses a FIFO Queue, not a Stack."
+    },
+    {
+      "id": 4,
+      "question": "What is the time complexity of the peek() operation on a stack?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+      "correct": 0,
+      "points": 10,
+      "explanation": "The peek() operation directly inspects the element at index 'top' without modifying the stack, taking O(1) constant time."
+    }
+  ],
+  "Queue": [
+    {
+      "id": 1,
+      "question": "Which order of processing does a standard Queue data structure use?",
+      "options": ["LIFO (Last In, First Out)", "FIFO (First In, First Out)", "Alphabetical", "Decreasing size"],
+      "correct": 1,
+      "points": 10,
+      "explanation": "Queues adhere to First-In First-Out (FIFO) — elements are enqueued at the rear and dequeued from the front."
+    },
+    {
+      "id": 2,
+      "question": "What major limitation of a linear array-based queue does a Circular Queue solve?",
+      "options": [
+        "Eliminates the need for dynamic memory",
+        "Prevents the false overflow problem when spaces are freed at the front",
+        "Reduces search time from O(n) to O(1)",
+        "Allows bidirectional traversal"
+      ],
+      "correct": 1,
+      "points": 10,
+      "explanation": "In a linear queue, front moves forward, leaving unused slots at the start. A circular queue wraps rear back to index 0 using modulo arithmetic."
+    },
+    {
+      "id": 3,
+      "question": "In a Circular Queue of capacity N, what formula gives the next index for the rear pointer?",
+      "options": ["rear = rear + 1", "rear = (rear + 1) % N", "rear = (rear - 1) % N", "rear = (rear * 2) % N"],
+      "correct": 1,
+      "points": 10,
+      "explanation": "The circular wrap-around uses modulo arithmetic: (rear + 1) % N."
+    },
+    {
+      "id": 4,
+      "question": "Which graph traversal algorithm primarily uses a Queue data structure?",
+      "options": ["Depth-First Search (DFS)", "Breadth-First Search (BFS)", "Kruskal's Minimum Spanning Tree", "Binary Search"],
+      "correct": 1,
+      "points": 10,
+      "explanation": "Breadth-First Search (BFS) explores vertices level-by-level using a FIFO queue."
+    }
+  ],
+  "Classes_Objects": [
+    {
+      "id": 1,
+      "question": "What is the default access specifier for members of a C++ class if none is specified?",
+      "options": ["public", "private", "protected", "internal"],
+      "correct": 1,
+      "points": 10,
+      "explanation": "In C++, all members of a class are private by default, whereas in a struct they are public by default."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following correctly describes 'Encapsulation' in C++?",
+      "options": [
+        "Allowing multiple functions to share the same name",
+        "Bundling data members and methods inside a class while restricting direct access",
+        "Deriving new classes from an existing parent class",
+        "Dynamically allocating memory with the new keyword"
+      ],
+      "correct": 1,
+      "points": 10,
+      "explanation": "Encapsulation binds data and functions together into a single unit and hides implementation details using private access."
+    },
+    {
+      "id": 3,
+      "question": "What is the role of the 'this' pointer in C++?",
+      "options": [
+        "Points to the base class of an object",
+        "Points to the next object in memory",
+        "An implicit pointer holding the memory address of the invoking object",
+        "A pointer that deallocates memory"
+      ],
+      "correct": 2,
+      "points": 10,
+      "explanation": "'this' is an implicit constant pointer available inside non-static member functions, pointing to the object that invoked the function."
+    }
+  ],
+  "Inheritance_Polymorphism": [
+    {
+      "id": 1,
+      "question": "Which keyword is used in C++ base classes to enable dynamic run-time polymorphism for member functions?",
+      "options": ["virtual", "override", "dynamic", "abstract"],
+      "correct": 0,
+      "points": 10,
+      "explanation": "The 'virtual' keyword instructs the C++ compiler to perform dynamic dispatch via the virtual table (vtable) at runtime."
+    },
+    {
+      "id": 2,
+      "question": "What is a pure virtual function in C++?",
+      "options": [
+        "A function that returns 0",
+        "A virtual function declared with '= 0' that must be overridden by derived classes",
+        "A function that cannot be modified",
+        "A static function that accepts no parameters"
+      ],
+      "correct": 1,
+      "points": 10,
+      "explanation": "A pure virtual function (e.g., virtual void draw() = 0;) makes the class abstract, meaning it cannot be instantiated directly."
+    },
+    {
+      "id": 3,
+      "question": "Which form of polymorphism is demonstrated by function overloading in C++?",
+      "options": ["Compile-time (Static) polymorphism", "Run-time (Dynamic) polymorphism", "Virtual polymorphism", "Late binding"],
+      "correct": 0,
+      "points": 10,
+      "explanation": "Function and operator overloading are resolved at compile time, known as static or compile-time polymorphism."
+    }
+  ]
+}
