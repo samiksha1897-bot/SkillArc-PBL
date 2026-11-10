@@ -70,3 +70,20 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+## 4. Operator Overloading Example
+C++ allows overloading standard operators (+, -, ==, <<) for user-defined classes:
+`cpp
+class CreditWallet {
+public:
+    int points;
+    CreditWallet(int p = 0) : points(p) {}
+
+    // Overloading '+' operator to add two wallets together
+    CreditWallet operator+(const CreditWallet& other) const {
+        return CreditWallet(this->points + other.points);
+    }
+};
+`

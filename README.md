@@ -1,224 +1,131 @@
-# SkillArc
-
-**SkillArc** is a learning platform designed to help students learn **Data Structures and Algorithms (DSA) and C++** through structured learning roadmaps, learning resources, coding practice, quizzes, and progress tracking.
-
-The project is being developed as part of the **Project Based Learning (PBL)** program.
-
----
-
-## Problem Statement
-
-Students often find it difficult to follow a structured path while learning Data Structures and Algorithms. Learning resources, coding practice, quizzes, and progress tracking are usually spread across different platforms.
-
-**SkillArc** aims to bring these learning components together into a single platform where students can learn concepts in a structured manner, practice problems, test their understanding, and track their progress.
+# SkillArc — Phase III Gamified Learning Platform
+**Repository:** [https://github.com/samiksha1897-bot/SkillArc-PBL](https://github.com/samiksha1897-bot/SkillArc-PBL)  
+**Evaluation Phase:** Phase III Project-Based Learning (PBL)  
+**Team Apex (B.Tech CSE — 2nd Year):**
+- **Samiksha Gurung** (Lead — DSA Modules in C)
+- **Vaibhavi Thapliyal** (Lead — Interface, Dashboard & Min-Heap Engine)
+- **Tanisha Rai** (Lead — C++ OOP Module, Friend Class & File Streams)
 
 ---
 
-## Objectives
+## About SkillArc
+**SkillArc** is an interactive, gamified learning platform tailored for undergraduate computer science students mastering **Data Structures & Algorithms in C** and **Object-Oriented Programming in C++**.
 
-The main objectives of SkillArc are:
-
-* Provide a structured roadmap for learning DSA and C++.
-* Organize topics according to learning levels and difficulty.
-* Provide curated learning resources for different topics.
-* Provide coding practice opportunities.
-* Include quizzes to test conceptual understanding.
-* Track student learning progress.
-* Encourage consistent practice through a gamified learning approach.
+In **Phase III**, SkillArc goes beyond teaching DSA and OOP: **it actively implements these computer science concepts within the platform's own application architecture.**
 
 ---
 
-## Team Members & Roles
+## ⚡ Real DSA Concepts Implemented in SkillArc
 
-| Team Member            | Role                                 |
-| ---------------------- | ------------------------------------ |
-| **Samiksha Gurung**    | DSA / Data Structures and Algorithms |
-| **Vaibhavi Thapliyal** | Interface / UI Development           |
-| **Tanisha Rai**        | OOPs / C++ Development               |
+1. **Min-Heap (Priority Queue):**
+   - Drives the **Live Student Leaderboard** using Python's `heapq`.
+   - Stores negative credit values (`-credits`) so the highest-scoring learner floats to the root.
+   - Deterministic tie-breaking uses negative streaks (`-streak`) and student roll IDs.
+   - **Time Complexity:** $O(N)$ build via `heapify()`, $O(N \log N)$ sorted rank extraction.
 
----
+2. **Prefix Tree (Trie):**
+   - Powers the **Concept & Topic Search Engine**.
+   - Enables instant prefix autocomplete across all 17 topics, subtopics, and programming terms in $O(L)$ time.
 
-## Technologies & Tools
+3. **Inverted Index (Hash Map):**
+   - Maps technical keywords (e.g., `vtable`, `malloc`, `recursion`, `bfs`, `destructor`) directly to relevant course pages with $O(1)$ average lookup time.
 
-### Programming Languages
+4. **Course Prerequisite Graph (DAG):**
+   - Models curriculum dependencies as a **Directed Acyclic Graph**.
+   - Runs **Breadth-First Search (BFS)** to calculate the shortest prerequisite path between any two modules.
+   - Runs **Depth-First Search (DFS)** to generate the complete topological sequence of the curriculum.
 
-* C
-* C++
-* Python
+5. **LIFO Navigation Stack:**
+   - Tracks in-app page history, allowing students to backtrack with the "⬅️ Previous Page" stack-pop button in $O(1)$ time.
 
-### Development & Project Tools
+6. **FIFO Study Task Queue:**
+   - Enqueues recommended practice tasks in chronological sequence. Students complete and dequeue the top task in $O(1)$ time.
 
-* Streamlit
-* SQLite
-* GitHub
-
-### Learning & Development Resources
-
-* roadmap.sh
-* LeetCode
-
----
-
-## Major Features
-
-### 1. Structured Learning Roadmap
-
-A topic-wise roadmap to help students follow a systematic path while learning DSA and C++.
-
-### 2. Topic-Based Learning
-
-Topics are organized according to different learning levels and difficulty categories:
-
-* Easy
-* Medium
-* Hard
-
-### 3. Learning Resources
-
-Curated resources will be provided for different topics to help students understand concepts and improve their skills.
-
-### 4. Coding Practice
-
-Students will be guided toward coding practice problems to strengthen their problem-solving skills.
-
-### 5. Quizzes
-
-Topic-based quizzes will be used to test students' understanding of concepts.
-
-### 6. Progress Tracking
-
-The platform will track students' learning progress and completed topics.
-
-### 7. Gamification
-
-The platform will include features such as:
-
-* Credit points
-* Rewards
-* Contests
-* Leaderboard
-* Monthly incentives
+7. **Singly Linked List:**
+   - Telemetry activity stream implemented with dynamic nodes supporting $O(1)$ head insertion and $O(N)$ traversal.
 
 ---
 
-## Project Structure
+## 🛡️ OOP Concepts Implemented in SkillArc
 
-```text
-SkillArc-PBL/
-│
-├── Phase-1/
-│   ├── PBL Report
-│   └── PBL Presentation
-│
-├── Phase-2/
-│   └── Development files will be added during Phase 2
-│
-├── Phase-3/
-│   └── Development files will be added during Phase 3
-│
-└── README.md
+1. **Inheritance & Abstraction (`core/oop_models.py`):**
+   - Abstract Base Class `User(ABC)` derived into `StudentUser` and `AdminUser`.
+   - Abstract Base Class `LearningModule(ABC)` derived into `DSAModule` and `OOPModule`.
+2. **Encapsulation:**
+   - Sensitive student metrics (credits, streak, quiz results, password hashes) are protected by private attributes, modified strictly through validated member methods (`add_credits()`, `record_quiz_attempt()`).
+3. **Polymorphism:**
+   - Virtual-style method overrides for `get_role_badge()` and `has_admin_privileges()`.
+4. **Friend Class in C++ (`Phase-2/OOPS/quiz_engine.cpp`):**
+   - `class Student` declares `friend class Admin;`, granting authorized faculty direct supervisory access to audit private student fields without exposing them to public modification.
+5. **C++ File Streams (`<fstream>`):**
+   - The native C++ engine exports formal cohort reports to `skillarc_audit_report.txt` using `std::ofstream`.
+6. **C++ STL:**
+   - Demonstrates `std::vector`, `std::map`, and `std::stack` containers.
+
+---
+
+## 🔒 Cryptographic Security & Password Hashing
+- Passwords are encrypted using **PBKDF2-HMAC-SHA256** with unique 128-bit random salts and 100,000 iterations.
+- Legacy plain-text passwords auto-migrate seamlessly on first run with zero data loss.
+- Constant-time hash verification (`hmac.compare_digest`) prevents timing attacks.
+
+---
+
+## 📚 17 Curriculum Modules
+
+### Data Structures in C (10 Topics)
+1. **Arrays in C** (Contiguous allocation, pointer offset arithmetic)
+2. **Stack (LIFO)** (Array stack, overflow, postfix evaluation)
+3. **Queue & Circular Queue** (FIFO, wrap-around modulo)
+4. **Linked Lists** (Singly, Doubly, Circular, in-place reversal, cycle detection)
+5. **Trees & BST** (Binary Search Tree invariant, Inorder, Preorder, Postorder)
+6. **Graphs & Traversals** (Adjacency Matrix, BFS queue, DFS recursion)
+7. **Searching** (Linear Search vs. Binary Search, overflow-safe mid calculation)
+8. **Sorting** (Bubble, Insertion, Merge $O(n \log n)$, Quick Sort)
+9. **Hashing** (Hash functions, Linear Probing, Separate Chaining, Load Factor)
+10. **Advanced DSA** (DMA `malloc`/`free`, Dangling Pointers, Sparse Matrices, Infix to Postfix)
+
+### Object-Oriented Programming in C++ (7 Topics)
+1. **C++ Fundamentals** (`cin`/`cout`, namespaces, function overloading, inline functions)
+2. **Classes and Objects** (Encapsulation, access specifiers, `this` pointer)
+3. **Constructors & Destructors** (Parameterized, copy constructor, destructor, static members)
+4. **Inheritance Types** (Single, Multiple, Multilevel, Diamond Problem & Virtual Base Classes)
+5. **Polymorphism** (Function overloading, operator overloading, virtual functions, pure virtual, vtable)
+6. **Exception Handling & File Streams** (`try`/`catch`/`throw`, `ifstream`, `ofstream`, file modes)
+7. **Templates & STL Containers** (Function/class templates, `vector`, `map`, `set`, `stack`, `std::sort`)
+
+---
+
+## 🚀 How to Run the Application
+
+### 1. Requirements
+Ensure you have Python 3.10+ and a C++ compiler (`g++` via MSYS2 / MinGW):
+```bash
+pip install streamlit
 ```
 
----
-
-## Project Development
-
-The project is being developed in multiple phases as part of the PBL process.
-
-### Phase 1 — Completed
-
-* Project idea and problem statement finalized.
-* Project objectives defined.
-* Proposed features and modules identified.
-* Development roadmap prepared.
-* Phase 1 report and presentation completed.
-
-### Phase 2 — Completed (Prototype Evaluation Build)
-
-The working interactive prototype for Phase 2 has been completed:
-
-* **DSA Learning Roadmap & Modules:** Arrays, Stack, and Queue with concept notes, C code implementations, and curated YouTube/LeetCode resources.
-* **C++ OOP Learning Modules & Engine:** Classes & Objects, Constructors, Inheritance, and Polymorphism, backed by a native C++ OOP quiz engine (`quiz_engine.cpp`) implementing `Student` and `Question` classes.
-* **Streamlit Interface & Dashboard:** Modern navy/purple student dashboard with real-time streak tracking, completion metrics, and sidebar navigation.
-* **Interactive Quizzes:** Multi-question topic-wise quizzes with answer review, explanations, and anti-abuse credit point awards.
-* **Gamification & Rewards:** Credit point wallet, unlocked/locked achievement badges, student leaderboard, and redeemable campus perks.
-* **Notes & Peer Learning:** Interactive community study notes with local persistence.
-
----
-
-## How to Run the Phase-2 Prototype
-
-### 1. Run the Streamlit Web Application
+### 2. Launch Streamlit Application
 From the repository root directory:
 ```bash
 python -m streamlit run app.py
 ```
-Or double-click `run_skillarc.bat` on Windows. The application will launch in your browser at `http://localhost:8501`.
+Open your browser at **`http://localhost:8501`**.
 
-### 2. Run the C++ OOP Quiz Engine (Terminal Mode)
-To compile and test the standalone C++ OOP module:
+### 3. Demo Accounts
+- **Samiksha Gurung (DSA Lead):** One-Click Demo button or ID `2510370150` / `apex123`
+- **Vaibhavi Thapliyal (UI Lead):** One-Click Demo button or ID `2510370530` / `apex123`
+- **Tanisha Rai (OOP Lead):** One-Click Demo button or ID `2510370080` / `apex123`
+- **Faculty Administrator:** One-Click Demo button `🛡️ Faculty Admin` or ID `ADMIN01` / `admin123`
+
+### 4. Run C++ Quiz Engine Standalone
 ```bash
-g++ -std=c++17 Phase-2/OOPS/quiz_engine.cpp -o Phase-2/OOPS/quiz_engine.exe
-./Phase-2/OOPS/quiz_engine.exe
+cd Phase-2/OOPS
+g++ -std=c++17 -Wall quiz_engine.cpp -o quiz_engine.exe
+./quiz_engine.exe
 ```
 
 ---
 
-### Phase 3 — Upcoming
-
-Further development, integration, testing, and improvements will be carried out in the later phase of the project.
-
----
-
-## Current Project Status
-
-**Status: Phase-II Prototype Completed & Ready for Evaluation**
-
-| Phase                                   | Status         |
-| --------------------------------------- | -------------- |
-| Phase 1 – Planning & Documentation      | Completed    |
-| Phase 2 – Core Prototype Development    | Completed    |
-| Phase 3 – Full Integration & Testing    | Upcoming     |
-
----
-
-## Individual Contributions
-
-The project work is divided among the three team members:
-
-* **Samiksha Gurung (Team Lead):** DSA roadmap, concept notes, C code implementations, and practice problem curation for Arrays, Stack, and Queue.
-* **Vaibhavi Thapliyal:** Streamlit dashboard interface, visual design, progress & streak tracking, gamification UI, and sidebar navigation.
-* **Tanisha Rai:** C++ OOP learning modules (Classes, Constructors, Inheritance, Polymorphism) and C++ OOP quiz engine with `Student` and `Question` classes.
-
-Individual contributions are reflected through the modular project structure and Git history.
-
-
----
-
-## Future Scope
-
-Future improvements to SkillArc may include:
-
-* More DSA and C++ topics
-* Additional coding challenges
-* Advanced progress analytics
-* More gamification features
-* Improved leaderboard and reward systems
-* Additional learning resources
-* User-friendly interface improvements
-
----
-
-## Project Documentation
-
-Project documentation and presentation material are maintained in the respective phase folders of this repository.
-
-* **Phase 1:** Project report and presentation
-* **Phase 2:** Development work will be added as the project progresses
-* **Phase 3:** Further project work will be added during the later development phase
-
----
-
-## Project Repository
-
-This repository contains the ongoing development, documentation, and progress of the **SkillArc PBL Project**.
+## 📑 Phase III Implementation Report
+For detailed algorithmic complexity breakdowns, before-and-after comparisons, and test suite logs, refer to:  
+👉 **[PHASE_3_IMPLEMENTATION_REPORT.md](file:///C:/Users/sudeep/OneDrive/Documents/SkillArc-PBL/PHASE_3_IMPLEMENTATION_REPORT.md)**

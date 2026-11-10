@@ -1,5 +1,5 @@
 {
-  "active_student": "2510370080",
+  "active_student": "2510370594",
   "students": {
     "2510370150": {
       "id": "2510370150",
@@ -72,7 +72,8 @@
           "action": "Logged in for 4-day learning streak",
           "time": "Today, 9:00 AM"
         }
-      ]
+      ],
+      "password": "pbkdf2:sha256:100000:477275a1f6b4b5eed7dcff1df5fab67d:e8f96a6eed7429f7fd2e4c960095b24ff876ffe5f90098aa55d8d2828a7c02e5"
     },
     "2510370530": {
       "id": "2510370530",
@@ -129,7 +130,8 @@
           "action": "Logged in for 5-day learning streak",
           "time": "Today, 8:45 AM"
         }
-      ]
+      ],
+      "password": "pbkdf2:sha256:100000:242574e16c052bc49e2c71a4761b35b6:adac1ddb3a0070a90066e049ed5f1153f39e105ef1eecc6ccb0d6b7cf0c107cd"
     },
     "2510370080": {
       "id": "2510370080",
@@ -181,6 +183,67 @@
         {
           "action": "Logged in for 4-day learning streak",
           "time": "Today, 9:15 AM"
+        }
+      ],
+      "password": "pbkdf2:sha256:100000:ab1b976634dad8ef3a35e1cbb95e1a41:97a8b5a8276e44e4b3fd9c3e1dfd8208322c4180e6a68b465f511c8983827a1d"
+    },
+    "2510370156": {
+      "id": "2510370156",
+      "name": "Vanshika Parmar",
+      "email": "vanshikaparmar0729@gmail.com",
+      "password": "pbkdf2:sha256:100000:cc83b85fc5db8b7984df5f0a09a2ecc2:098ee706c12094a9429296417ed2b30c7b3c0242560d9b13d2a9205ffda0ffbf",
+      "role": "Student Learner",
+      "department": "B.Tech IT \u2014 2nd Year",
+      "avatar": "\ud83c\udf93",
+      "credits": 50,
+      "streak_days": 1,
+      "completed_topics": [],
+      "in_progress_topics": [
+        "Arrays"
+      ],
+      "quiz_history": {},
+      "badges": [
+        "first_step"
+      ],
+      "redemptions": [],
+      "recent_activity": [
+        {
+          "action": "Created student profile (+50 welcome credits)",
+          "time": "Just now"
+        },
+        {
+          "action": "Started DSA & C++ Roadmap",
+          "time": "Just now"
+        }
+      ]
+    },
+    "2510370594": {
+      "id": "2510370594",
+      "name": "naina vashsitha",
+      "email": "vashishthanaina@gmail.com",
+      "password": "pbkdf2:sha256:100000:f028a1485b90f6e02f5c92981c7047be:cf37e7956a2c6a06f8fff7005c97338eb576710abe6c4e9e984f4932297e8b3c",
+      "role": "Student Learner",
+      "department": "B.Tech CSE \u2014 2nd Year (Sec A)",
+      "avatar": "\ud83c\udf93",
+      "credits": 50,
+      "streak_days": 1,
+      "completed_topics": [],
+      "in_progress_topics": [
+        "Arrays"
+      ],
+      "quiz_history": {},
+      "badges": [
+        "first_step"
+      ],
+      "redemptions": [],
+      "recent_activity": [
+        {
+          "action": "Created student profile (+50 welcome credits)",
+          "time": "Just now"
+        },
+        {
+          "action": "Started DSA & C++ Roadmap",
+          "time": "Just now"
         }
       ]
     }
@@ -244,6 +307,35 @@
       "credits": 95,
       "streak": 2,
       "badges": 2
+    },
+    {
+      "rank": 8,
+      "name": "Vanshika Parmar",
+      "id": "2510370156",
+      "credits": 50,
+      "streak": 1,
+      "badges": 1,
+      "is_team": false
+    },
+    {
+      "rank": 9,
+      "name": "naina vashsitha",
+      "id": "2510370594",
+      "credits": 50,
+      "streak": 1,
+      "badges": 1,
+      "is_team": false
     }
-  ]
+  ],
+  "admins": {
+    "ADMIN01": {
+      "id": "ADMIN01",
+      "name": "Prof. Rajesh Sharma",
+      "email": "admin@skillarc.edu",
+      "role": "Administrator",
+      "password": "pbkdf2:sha256:100000:3aa6c732defa6fce4a89dfe2ec3d5d89:f88af8e76b7607b5256c8b03de55b99c24684eae98f5f792365ad9ab6f462bb3",
+      "department": "Faculty of Computer Science & Engineering",
+      "avatar": "\ud83d\udee1\ufe0f"
+    }
+  }
 }

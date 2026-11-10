@@ -1,0 +1,10 @@
+================================================================================
+           SKILLARC C++ OOP ADMIN AUDIT REPORT (FILE STREAM I/O)                
+           Inspector: Prof. Rajesh Sharma (ADMIN01)
+================================================================================
+Roll ID: 2510370080 | Tanisha Rai | Credits: 150 pts | Accuracy: 100.0%
+Roll ID: 2510370150 | Samiksha Gurung | Credits: 140 pts | Accuracy: 100.0%
+Roll ID: 2510370530 | Vaibhavi Thapliyal | Credits: 160 pts | Accuracy: 87.5%
+Roll ID: 2510370156 | Vanshika Parmar | Credits: 50 pts | Accuracy: 0.0%
+Roll ID: 2510370594 | Naina Vashistha | Credits: 50 pts | Accuracy: 0.0%
+================================================================================
