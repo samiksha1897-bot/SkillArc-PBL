@@ -30,7 +30,7 @@ double computeTotal(double price, int qty, double discount = 0.05) {
 }
 
 int main() {
-    cout << "=======================================" << endl;
+    cout << "======================================" << endl;
     cout << " SkillArc — C++ Fundamentals Showcase   " << endl;
     cout << "========================================" << endl << endl;
 
