@@ -1,0 +1,749 @@
+"""
+Expand data/quizzes.json into a comprehensive multi-difficulty question bank
+covering all 17 topics across DSA (C) and OOP (C++).
+Supports Easy, Medium, and Hard tiers with Conceptual, Output Prediction, and Code Debugging questions.
+"""
+
+import json
+from pathlib import Path
+
+quiz_file = Path(r"C:\Users\sudeep\OneDrive\Documents\SkillArc-PBL\data\quizzes.json")
+
+# Build complete question bank
+QUIZ_BANK = {
+    "Arrays": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "What is the time complexity of accessing an element at a given index in a 1D contiguous array?",
+            "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+            "correct": 0,
+            "points": 10,
+            "explanation": "Arrays provide constant time O(1) random access because the memory address is computed directly: Base Address + (Index × Element Size)."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Code Analysis",
+            "question": "In C, how is the array index expression arr[i] evaluated internally by the compiler?",
+            "options": [
+                "arr + i",
+                "*(arr + i)",
+                "&arr[i]",
+                "*arr + i"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "In C, array indexing arr[i] is syntactically equivalent to *(arr + i). This pointer arithmetic evaluates to the memory address offset by i units."
+        },
+        {
+            "id": 3,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What is the worst-case time complexity of inserting a new element at index 0 of an array of size n?",
+            "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+            "correct": 2,
+            "points": 15,
+            "explanation": "Inserting at the beginning requires shifting all n existing elements one position to the right, which takes linear O(n) time."
+        },
+        {
+            "id": 4,
+            "difficulty": "Hard",
+            "type": "Output Prediction",
+            "question": "What is the output of the following C code?\nint arr[] = {10, 20, 30};\nint *ptr = arr;\nprintf(\"%d \", *(ptr + 1));\nprintf(\"%d\", *ptr + 1);",
+            "options": ["20 11", "20 20", "11 20", "10 11"],
+            "correct": 0,
+            "points": 20,
+            "explanation": "*(ptr + 1) dereferences the element at index 1 (which is 20). *ptr + 1 dereferences index 0 (10) and adds 1, producing 11."
+        }
+    ],
+    "Stack": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "Which data structure principle does a Stack strictly follow?",
+            "options": ["FIFO (First In, First Out)", "LIFO (Last In, First Out)", "Priority Based", "Random Access"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "A stack follows Last-In First-Out (LIFO), meaning the most recently pushed item is the first one popped."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "In an array-based stack of capacity MAX, what condition represents 'Stack Overflow'?",
+            "options": ["top == -1", "top == 0", "top == MAX - 1", "top == MAX"],
+            "correct": 2,
+            "points": 15,
+            "explanation": "In 0-indexed arrays with capacity MAX, the highest valid index is MAX - 1. When top == MAX - 1, pushing another item causes stack overflow."
+        },
+        {
+            "id": 3,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "Which of the following is NOT an application of a Stack data structure?",
+            "options": [
+                "Evaluating postfix mathematical expressions",
+                "Function call stack during recursion",
+                "CPU Round-Robin process scheduling",
+                "Undo / Redo buffers in code editors"
+            ],
+            "correct": 2,
+            "points": 15,
+            "explanation": "CPU Round-Robin process scheduling relies on a FIFO Queue, not a LIFO Stack."
+        },
+        {
+            "id": 4,
+            "difficulty": "Hard",
+            "type": "Output Prediction",
+            "question": "What is the result of evaluating the Postfix expression '5 3 + 2 *' using a stack?",
+            "options": ["16", "25", "11", "13"],
+            "correct": 0,
+            "points": 20,
+            "explanation": "Push 5, Push 3. Encounter '+': pop 3 and 5, compute 5 + 3 = 8, push 8. Push 2. Encounter '*': pop 2 and 8, compute 8 * 2 = 16."
+        }
+    ],
+    "Queue": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "Which order of processing does a standard Queue data structure use?",
+            "options": ["LIFO (Last In, First Out)", "FIFO (First In, First Out)", "Alphabetical", "Priority Only"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "Queues adhere to First-In First-Out (FIFO) — elements are inserted at the rear and removed from the front."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "In a Circular Queue of size N, what formula advances the rear pointer to wrap around?",
+            "options": ["rear = rear + 1", "rear = (rear + 1) % N", "rear = (rear - 1) % N", "rear = rear * 2"],
+            "correct": 1,
+            "points": 15,
+            "explanation": "Modulo arithmetic (rear + 1) % N wraps the pointer back to index 0 when it exceeds N - 1."
+        },
+        {
+            "id": 3,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What major limitation of a linear array-based queue does a Circular Queue solve?",
+            "options": [
+                "Allows bidirectional traversal",
+                "Prevents false overflow by reusing emptied front slots",
+                "Reduces searching time from O(n) to O(1)",
+                "Permits dynamic memory growth without reallocation"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "In a linear queue, dequeuing moves the front pointer forward, leaving dead memory at the beginning. Circular queues wrap back to reuse those slots."
+        },
+        {
+            "id": 4,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "Which graph traversal algorithm primarily relies on a FIFO Queue?",
+            "options": ["Depth-First Search (DFS)", "Breadth-First Search (BFS)", "Kruskal's Algorithm", "Binary Search"],
+            "correct": 1,
+            "points": 20,
+            "explanation": "Breadth-First Search (BFS) explores vertices level-by-level using a FIFO queue."
+        }
+    ],
+    "Linked_Lists": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "What is the time complexity of inserting a new node at the head of a Singly Linked List?",
+            "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+            "correct": 0,
+            "points": 10,
+            "explanation": "Inserting at the head requires creating the node, setting new_node->next = head, and pointing head to new_node, which takes constant O(1) time."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What is the primary memory disadvantage of a Doubly Linked List compared to a Singly Linked List?",
+            "options": [
+                "Requires elements to be contiguous",
+                "Requires an extra pointer (prev) per node, increasing memory overhead",
+                "Does not support forward traversal",
+                "Cannot be dynamically resized"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "Each node in a Doubly Linked List stores two pointers ('prev' and 'next'), using double the pointer memory overhead of a Singly Linked List."
+        },
+        {
+            "id": 3,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "In a Circular Singly Linked List, what does the next pointer of the last node point to?",
+            "options": ["NULL", "Head node", "Previous node", "Random memory address"],
+            "correct": 1,
+            "points": 15,
+            "explanation": "In a circular linked list, the tail node's next pointer circles back to the head node instead of pointing to NULL."
+        },
+        {
+            "id": 4,
+            "difficulty": "Hard",
+            "type": "Code Analysis",
+            "question": "Which algorithm detects a cycle in a linked list using two pointers (slow and fast) in O(n) time and O(1) space?",
+            "options": ["Floyd's Tortoise and Hare Algorithm", "Dijkstra's Algorithm", "Kadane's Algorithm", "KMP Algorithm"],
+            "correct": 0,
+            "points": 20,
+            "explanation": "Floyd's Cycle-Finding Algorithm advances one pointer by 1 step and the other by 2 steps. If a cycle exists, they must eventually meet."
+        }
+    ],
+    "Trees": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "What traversal sequence of a Binary Search Tree (BST) produces keys in ascending sorted order?",
+            "options": ["Preorder (Root, Left, Right)", "Inorder (Left, Root, Right)", "Postorder (Left, Right, Root)", "Level-Order"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "Inorder traversal visits Left Subtree (< Root), then Root, then Right Subtree (> Root), yielding strictly ascending sorted keys."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What is the maximum number of nodes on level L of a binary tree (assuming root is at level 0)?",
+            "options": ["2^L", "2^(L+1) - 1", "L^2", "2*L"],
+            "correct": 0,
+            "points": 15,
+            "explanation": "Level 0 has 2^0 = 1 node (root), Level 1 has 2^1 = 2 nodes, Level 2 has 2^2 = 4 nodes, and general level L has at most 2^L nodes."
+        },
+        {
+            "id": 3,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What is the worst-case search time in an unbalanced (skewed) Binary Search Tree containing n keys?",
+            "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+            "correct": 2,
+            "points": 15,
+            "explanation": "When keys are inserted in sorted order, the BST degenerates into a linear linked list of height n, making search O(n)."
+        },
+        {
+            "id": 4,
+            "difficulty": "Hard",
+            "type": "Code Analysis",
+            "question": "When deleting a node with two children in a BST, which node replaces the deleted node to preserve the BST invariant?",
+            "options": [
+                "Any random leaf node",
+                "Inorder Successor (smallest node in right subtree) or Inorder Predecessor",
+                "Root node of the tree",
+                "The parent node"
+            ],
+            "correct": 1,
+            "points": 20,
+            "explanation": "The Inorder Successor (minimum in right subtree) is strictly greater than all left children and strictly smaller than remaining right children, preserving the BST property."
+        }
+    ],
+    "Graphs": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "What is the space complexity of an Adjacency Matrix representing a graph with V vertices?",
+            "options": ["O(V)", "O(V + E)", "O(V²)", "O(E²)"],
+            "correct": 2,
+            "points": 10,
+            "explanation": "An Adjacency Matrix requires a 2D array of size V × V, requiring O(V²) memory regardless of the number of edges."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "Which data structure is primarily used to implement Breadth-First Search (BFS)?",
+            "options": ["Stack", "Queue", "Binary Heap", "Hash Table"],
+            "correct": 1,
+            "points": 15,
+            "explanation": "BFS explores vertices in concentric circles from the source using a First-In First-Out (FIFO) Queue."
+        },
+        {
+            "id": 3,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What algorithm finds the topological ordering of dependencies in a Directed Acyclic Graph (DAG)?",
+            "options": ["Kruskal's Algorithm", "Depth-First Search (DFS) / Kahn's Algorithm", "Binary Search", "Prim's Algorithm"],
+            "correct": 1,
+            "points": 15,
+            "explanation": "Topological sorting can be computed using DFS (recording post-visit times) or Kahn's Algorithm using vertex in-degrees."
+        },
+        {
+            "id": 4,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "In an unweighted graph, which algorithm guarantees finding the shortest path (minimum edge count) between two vertices?",
+            "options": ["Depth-First Search (DFS)", "Breadth-First Search (BFS)", "Preorder Traversal", "Inorder Traversal"],
+            "correct": 1,
+            "points": 20,
+            "explanation": "Because BFS explores vertices in order of increasing distance from the starting node, the first time target is reached is guaranteed to be the shortest path."
+        }
+    ],
+    "Searching": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "What prerequisite must be satisfied before Binary Search can be applied to an array?",
+            "options": ["Array must contain unique elements only", "Array must be sorted", "Array size must be a power of 2", "Array must use dynamic memory"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "Binary search divides the search interval based on element ordering, meaning the elements MUST be sorted in advance."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Code Analysis",
+            "question": "Why is 'int mid = low + (high - low) / 2;' preferred over 'int mid = (low + high) / 2;' in C/C++?",
+            "options": [
+                "It is faster on the CPU",
+                "It prevents potential 32-bit signed integer overflow when low + high exceeds INT_MAX",
+                "It automatically rounds up",
+                "It works on floating point numbers"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "If low and high are very large positive integers, their sum (low + high) can overflow INT_MAX (2,147,483,647), producing an erroneous negative index."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "What is the maximum number of comparisons required by Binary Search on a sorted array of 1,000,000 elements in the worst case?",
+            "options": ["20", "1,000", "500,000", "1,000,000"],
+            "correct": 0,
+            "points": 20,
+            "explanation": "ceil(log2(1,000,000)) = ceil(19.93) = 20 comparisons, demonstrating the power of O(log n) efficiency."
+        }
+    ],
+    "Sorting": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "Which of the following sorting algorithms has a guaranteed worst-case time complexity of O(n log n)?",
+            "options": ["Bubble Sort", "Insertion Sort", "Quick Sort", "Merge Sort"],
+            "correct": 3,
+            "points": 10,
+            "explanation": "Merge sort divides the list evenly in half at every level (log n levels) and performs O(n) merging work per level, guaranteeing O(n log n) time in all cases."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What does it mean for a sorting algorithm to be 'Stable'?",
+            "options": [
+                "It does not crash when memory is low",
+                "It preserves the relative order of elements with equal keys",
+                "It runs in O(n) space complexity",
+                "It always finishes in under 1 second"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "A stable sort ensures that if two elements have identical keys, their original relative order from the input array is maintained in the sorted output."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "What is the worst-case time complexity of Quick Sort, and when does it occur?",
+            "options": [
+                "O(n log n), when the array is randomly shuffled",
+                "O(n²), when the selected pivot is consistently the smallest or largest element",
+                "O(n), when all elements are identical",
+                "O(n³), when sorting floating-point numbers"
+            ],
+            "correct": 1,
+            "points": 20,
+            "explanation": "When an extreme element (smallest/largest) is chosen as pivot on an already sorted array without random pivoting, partitions become size 0 and n - 1, leading to O(n²) time."
+        }
+    ],
+    "Hashing": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "What is a 'Collision' in a Hash Table?",
+            "options": [
+                "When two threads access the table simultaneously",
+                "When two distinct keys compute to the exact same hash index",
+                "When the hash table runs out of RAM",
+                "When a negative key is passed to the hash function"
+            ],
+            "correct": 1,
+            "points": 10,
+            "explanation": "A collision occurs whenever h(k1) == h(k2) for two different keys k1 != k2 due to the pigeonhole principle."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "In Open Addressing with Linear Probing, how are collisions resolved?",
+            "options": [
+                "By creating a linked list at that index",
+                "By sequentially checking the next adjacent slot: (hash + i) % TableSize",
+                "By discarding the older entry",
+                "By doubling the array size immediately"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "Linear probing sequentially examines slot (hash + 1) % size, (hash + 2) % size, etc., until an unoccupied bucket is found."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "What is the 'Load Factor' (α) of a Hash Table, and what happens when it becomes too high?",
+            "options": [
+                "α = Total Elements / Table Capacity; high α causes frequent collisions and degrades search to O(n)",
+                "α = Table Capacity / Total Elements; high α causes memory crashes",
+                "α is the execution time of the hash function",
+                "α is the percentage of deleted keys"
+            ],
+            "correct": 0,
+            "points": 20,
+            "explanation": "Load factor α = n / m measures table saturation. As α exceeds ~0.7 in open addressing, collision clusters degrade search time toward O(n), requiring rehashing into a larger table."
+        }
+    ],
+    "Advanced_DSA": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "Which C standard library function deallocates memory previously allocated by malloc() or calloc()?",
+            "options": ["delete()", "free()", "dealloc()", "destroy()"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "free(ptr) releases dynamically allocated heap memory back to the operating system, preventing memory leaks."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What is a 'Dangling Pointer' in C programming?",
+            "options": [
+                "A pointer pointing to NULL",
+                "A pointer continuing to reference memory after that memory has been freed",
+                "A pointer that has not been initialized",
+                "A pointer to a function"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "A dangling pointer arises when memory is deallocated via free(ptr), but the pointer variable is not reset to NULL, pointing to invalid memory."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "In the 3-tuple representation of a Sparse Matrix, what are the three values stored for each non-zero entry?",
+            "options": [
+                "(Row Index, Column Index, Non-zero Value)",
+                "(Address, Pointer, Value)",
+                "(Key, Hash, Bucket)",
+                "(Left Child, Right Child, Parent)"
+            ],
+            "correct": 0,
+            "points": 20,
+            "explanation": "Sparse matrices save memory by recording only the non-zero cells in a 3-tuple format: (row, column, value)."
+        }
+    ],
+    "CPP_Fundamentals": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "Which stream object in C++ is used to accept standard user input from the console?",
+            "options": ["cout", "cin", "cerr", "clog"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "'cin' (character input) is the standard input stream object in C++ paired with the extraction operator (>>)."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "Which of the following conditions allows Function Overloading in C++?",
+            "options": [
+                "Functions with the same name and differing only by return type",
+                "Functions with the same name but differing parameter types or count",
+                "Functions defined inside different source files",
+                "Functions declared with the static keyword"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "Function overloading requires unique function parameter signatures (count or types). Changing only the return type produces a compile-time error."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "What does the 'inline' function keyword suggest to the C++ compiler?",
+            "options": [
+                "Run the function on a separate GPU thread",
+                "Expand the function body directly at each call site to eliminate function call overhead",
+                "Store the function in cache memory permanently",
+                "Make the function private to the class"
+            ],
+            "correct": 1,
+            "points": 20,
+            "explanation": "The 'inline' keyword hints the compiler to substitute the function's code directly into callers, avoiding the call/return stack overhead for small, fast routines."
+        }
+    ],
+    "Classes_Objects": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "What is the default access specifier for members of a C++ class if none is explicitly declared?",
+            "options": ["public", "private", "protected", "friend"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "In C++, all members of a class are private by default, whereas members of a struct are public by default."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "Which statement accurately describes 'Encapsulation' in Object-Oriented Programming?",
+            "options": [
+                "Deriving child classes from a parent blueprint",
+                "Bundling data members and functions together while restricting direct outside access using private specifiers",
+                "Allowing one function name to have multiple implementations",
+                "Allocating dynamic objects using the new keyword"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "Encapsulation binds data and the methods that manipulate that data into a cohesive unit and enforces access control via private/protected boundaries."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Code Analysis",
+            "question": "What is the 'this' pointer in C++?",
+            "options": [
+                "A global pointer to the first instantiated object",
+                "An implicit constant pointer passed to non-static member functions, holding the memory address of the invoking object",
+                "A pointer used exclusively in destructors",
+                "A pointer that converts objects to JSON"
+            ],
+            "correct": 1,
+            "points": 20,
+            "explanation": "'this' is an implicit pointer available inside non-static member functions that points directly to the calling object (ClassName* const this)."
+        }
+    ],
+    "Constructors": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "When is a Class Constructor automatically invoked in C++?",
+            "options": [
+                "When the program terminates",
+                "When an object of that class is instantiated in memory",
+                "When a member function is called",
+                "Only when explicitly called with the constructor name"
+            ],
+            "correct": 0,
+            "points": 10,
+            "explanation": "Constructors are special member functions automatically executed when an instance (object) of that class is allocated in memory."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Code Analysis",
+            "question": "What is the parameter signature of a standard C++ Copy Constructor for class Student?",
+            "options": [
+                "Student(Student s)",
+                "Student(const Student& other)",
+                "Student(Student* ptr)",
+                "Student(int id, string name)"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "A copy constructor must accept a reference to const object (const ClassName&). Passing by value would trigger infinite recursive copy constructor calls."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "How many destructors can a C++ class possess, and what parameters do they accept?",
+            "options": [
+                "Multiple destructors via overloading",
+                "Exactly one destructor, and it takes zero parameters and returns no value",
+                "Two destructors: default and parameterized",
+                "One destructor per data member"
+            ],
+            "correct": 1,
+            "points": 20,
+            "explanation": "A class can have only one destructor (~ClassName()). It cannot accept arguments and cannot be overloaded."
+        }
+    ],
+    "Inheritance": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "If class Derived inherits from class Base using public inheritance, what access level do Base's protected members have inside Derived?",
+            "options": ["public", "protected", "private", "Inaccessible"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "Under public inheritance, protected members of the base class remain protected in the derived class."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What is the 'Diamond Problem' in C++ inheritance?",
+            "options": [
+                "A compiler error when inheriting more than 4 classes",
+                "Ambiguity arising when a class inherits from two classes that both inherit from the same common base class",
+                "A memory leak in circular linked lists",
+                "Passing invalid arguments to a constructor"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "The Diamond Problem occurs in hybrid multiple inheritance when duplicate copies of a root base class are inherited, creating ambiguity."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Code Analysis",
+            "question": "How is the Diamond Problem resolved in C++ to guarantee only one shared instance of the root class?",
+            "options": [
+                "Using the 'friend' keyword",
+                "Using 'virtual' inheritance on the intermediate classes (e.g., class B : virtual public A)",
+                "Overriding the root destructor",
+                "Making all data members static"
+            ],
+            "correct": 1,
+            "points": 20,
+            "explanation": "Virtual base classes ensure that only one shared copy of the base class subobject is created in the final derived class."
+        }
+    ],
+    "Polymorphism": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "Which keyword must be used in a C++ base class function declaration to enable dynamic runtime polymorphism?",
+            "options": ["dynamic", "virtual", "override", "abstract"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "The 'virtual' keyword enables dynamic dispatch via the virtual method table (vtable) at runtime."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "What is a 'Pure Virtual Function' in C++?",
+            "options": [
+                "A function with an empty body {}",
+                "A virtual function declared with '= 0' that forces derived classes to provide an implementation",
+                "A function that returns 0",
+                "A static inline function"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "A pure virtual function (virtual void run() = 0;) has no implementation in the base class and turns the class into an Abstract Base Class."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "What internal mechanism does C++ use at runtime to resolve calls to virtual member functions?",
+            "options": [
+                "Virtual Method Table (vtable) and Virtual Table Pointer (vptr)",
+                "Hash map string lookups",
+                "Dynamic casting on every call",
+                "Heap scanning"
+            ],
+            "correct": 0,
+            "points": 20,
+            "explanation": "The compiler creates a virtual table (vtable) of function pointers for each class with virtual functions. Each object contains a hidden vptr pointing to its class's vtable."
+        }
+    ],
+    "Exception_FileIO": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "Which header file must be included in C++ to use file streams (ifstream, ofstream, fstream)?",
+            "options": ["<iostream>", "<fstream>", "<cstdio>", "<sstream>"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "<fstream> provides declarations for the file stream classes ifstream (read), ofstream (write), and fstream (both)."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Code Analysis",
+            "question": "What happens if an exception is thrown inside a try block but no matching catch block is provided in the program?",
+            "options": [
+                "The exception is silently ignored",
+                "The standard library calls std::terminate(), causing an abrupt program crash",
+                "The program restarts automatically",
+                "The compiler catches it at build time"
+            ],
+            "correct": 1,
+            "points": 15,
+            "explanation": "An uncaught exception causes the runtime to invoke std::terminate(), aborting the execution."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Conceptual",
+            "question": "Which file open mode flag in C++ appends new written data to the end of an existing file rather than truncating it?",
+            "options": ["ios::in", "ios::out", "ios::app", "ios::trunc"],
+            "correct": 2,
+            "points": 20,
+            "explanation": "ios::app opens the stream in append mode, moving the write pointer to the end of the file before every write."
+        }
+    ],
+    "Templates_STL": [
+        {
+            "id": 1,
+            "difficulty": "Easy",
+            "type": "Conceptual",
+            "question": "What keyword is used to declare a generic function or class in C++?",
+            "options": ["generic", "template", "virtual", "auto"],
+            "correct": 1,
+            "points": 10,
+            "explanation": "The 'template <typename T>' syntax introduces a generic template parameter list."
+        },
+        {
+            "id": 2,
+            "difficulty": "Medium",
+            "type": "Conceptual",
+            "question": "Which C++ STL container is implemented under the hood as a self-balancing Red-Black Tree, storing elements in sorted order by key?",
+            "options": ["std::vector", "std::unordered_map", "std::map", "std::stack"],
+            "correct": 2,
+            "points": 15,
+            "explanation": "std::map is an associative container implemented as a balanced Red-Black BST, offering O(log n) search, insertion, and deletion."
+        },
+        {
+            "id": 3,
+            "difficulty": "Hard",
+            "type": "Code Analysis",
+            "question": "What is the average time complexity of std::sort() from the C++ <algorithm> header?",
+            "options": ["O(n)", "O(n log n)", "O(n²)", "O(log n)"],
+            "correct": 1,
+            "points": 20,
+            "explanation": "std::sort() is implemented using Introsort (a hybrid of Quick Sort, Heap Sort, and Insertion Sort), providing guaranteed O(n log n) worst-case time."
+        }
+    ]
+}
+
+# Write out to data/quizzes.json
+with open(quiz_file, "w", encoding="utf-8") as f:
+    json.dump(QUIZ_BANK, f, indent=2)
+
+print(f"Successfully generated complete Question Bank with {len(QUIZ_BANK)} topics in {quiz_file}!")

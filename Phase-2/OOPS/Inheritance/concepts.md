@@ -130,3 +130,24 @@ int main() {
    - The **Base Class Destructor** is called **second** (reverse order).
 
 ---
+## 6. The Diamond Problem & Virtual Base Classes
+When class D inherits from both B and C, and both B and C inherit from class A:
+`
+        [ Class A ]
+         /       \
+   [ Class B ]  [ Class C ]
+         \       /
+        [ Class D ]
+`
+Two copies of A are inherited into D, causing ambiguity and duplicate data.
+
+### Solution: irtual Base Classes
+In C++, declaring inheritance as irtual ensures only **one shared instance** of A is passed to D:
+`cpp
+class A { public: int x; };
+class B : virtual public A { };
+class C : virtual public A { };
+class D : public B, public C {
+    // D contains only ONE unambiguous copy of x!
+};
+`
