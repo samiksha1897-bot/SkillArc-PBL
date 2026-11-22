@@ -2018,47 +2018,79 @@ def render_leaderboard_page():
 # PAGE 8: STUDENT REWARDS STORE
 # ==============================================================================
 def render_rewards_page():
-    st.markdown("""
+    st.markdown('''
     <div class="brand-header">
         <div>
             <h1 class="brand-title">Credit Rewards Store 🎁</h1>
             <span style="color: #64748b; font-size: 0.95rem;">Redeem your hard-earned credit points for campus perks and tech swag.</span>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    ''', unsafe_allow_html=True)
 
-    rewards = st.session_state.rewards
-    r_cols = st.columns(len(rewards))
+    curr_student = get_current_student()
+    rewards = st.session_state.get("rewards", [])
+    if not rewards:
+        st.info("No rewards currently available in the catalog.")
+        return
 
-    for idx, item in enumerate(rewards):
-        with r_cols[idx]:
-            can_afford = student["credits"] >= item["cost"]
-            st.markdown(f"""
-            <div class="content-card" style="text-align: center; min-height: 220px;">
-                <div style="font-size: 2.5rem; margin-bottom: 6px;">{item.get('icon', '🎁')}</div>
-                <h4 style="margin: 0 0 4px 0; color: #0f172a;">{item['title']}</h4>
-                <p style="font-size: 0.8rem; color: #64748b; min-height: 40px;">{item['desc']}</p>
-                <div style="font-size: 1.15rem; font-weight: 800; color: #4f46e5; margin-bottom: 12px;">{item['cost']} Credits</div>
-            </div>
-            """, unsafe_allow_html=True)
+    cols_per_row = 3
+    for i in range(0, len(rewards), cols_per_row):
+        batch = rewards[i:i + cols_per_row]
+        cols = st.columns(len(batch))
+        for col, item in zip(cols, batch):
+            with col:
+                cost = item.get("cost", 0)
+                can_afford = curr_student.get("credits", 0) >= cost
+                icon = item.get("icon", "🎁")
+                title = item.get("title", "Reward")
+                desc = item.get("desc") or item.get("description", "Exclusive campus perk.")
+                item_id = item.get("id", f"rw_{i}")
 
-            if st.button(f"Redeem (-{item['cost']} pts)", key=f"btn_rw_{item['id']}", disabled=not can_afford, use_container_width=True):
-                voucher = f"ARC-{item['id'].upper()}-{random.randint(1000, 9999)}"
-                student["credits"] -= item["cost"]
-                student.setdefault("redemptions", []).insert(0, {
-                    "reward_id": item["id"],
-                    "title": item["title"],
-                    "cost": item["cost"],
-                    "voucher": voucher,
-                    "date": datetime.now().strftime("%Y-%m-%d %H:%M")
-                })
-                student["recent_activity"].insert(0, {
-                    "action": f"Redeemed reward: '{item['title']}' (-{item['cost']} pts)",
-                    "time": datetime.now().strftime("%I:%M %p")
-                })
-                persist_state()
-                st.success(f"🎉 Voucher Generated: {voucher}")
-                st.rerun()
+                st.markdown(f'''
+                <div class="content-card" style="text-align: center; min-height: 240px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="font-size: 2.5rem; margin-bottom: 6px;">{icon}</div>
+                        <h4 style="margin: 0 0 6px 0; color: #0f172a;">{title}</h4>
+                        <p style="font-size: 0.82rem; color: #64748b; min-height: 48px; line-height: 1.4;">{desc}</p>
+                    </div>
+                    <div style="font-size: 1.15rem; font-weight: 800; color: #4f46e5; margin-top: 8px; margin-bottom: 8px;">{cost} Credits</div>
+                </div>
+                ''', unsafe_allow_html=True)
+
+                if st.button(f"Redeem (-{cost} pts)", key=f"btn_rw_{item_id}", disabled=not can_afford, use_container_width=True):
+                    voucher = f"ARC-{str(item_id).upper()}-{random.randint(1000, 9999)}"
+                    curr_student["credits"] -= cost
+                    curr_student.setdefault("redemptions", []).insert(0, {
+                        "reward_id": item_id,
+                        "title": title,
+                        "cost": cost,
+                        "voucher": voucher,
+                        "date": datetime.now().strftime("%Y-%m-%d %H:%M")
+                    })
+                    curr_student.setdefault("recent_activity", []).insert(0, {
+                        "action": f"Redeemed reward: '{title}' (-{cost} pts)",
+                        "time": datetime.now().strftime("%I:%M %p")
+                    })
+                    persist_state()
+                    st.success(f"🎉 Voucher Generated: {voucher}")
+                    st.rerun()
+
+    # Section for student's redeemed vouchers
+    redemptions = curr_student.get("redemptions", [])
+    if redemptions:
+        st.markdown("<br><hr>", unsafe_allow_html=True)
+        st.subheader("🎟️ Your Claimed Vouchers")
+        v_cols = st.columns(min(len(redemptions), 3))
+        for idx, red in enumerate(redemptions[:6]):
+            with v_cols[idx % min(len(redemptions), 3)]:
+                st.markdown(f'''
+                <div style="background: #f8fafc; border: 1.5px dashed #4f46e5; border-radius: 12px; padding: 14px; margin-bottom: 12px;">
+                    <span style="font-size: 0.75rem; font-weight: 700; color: #4f46e5; text-transform: uppercase;">Claimed Perk</span>
+                    <h5 style="margin: 4px 0 2px 0; color: #0f172a;">{red.get('title', 'Reward')}</h5>
+                    <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">Claimed on {red.get('date', 'Recent')}</p>
+                    <code style="background: #e0e7ff; color: #3730a3; padding: 4px 8px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">{red.get('voucher', 'N/A')}</code>
+                </div>
+                ''', unsafe_allow_html=True)
 
 
 # ==============================================================================
