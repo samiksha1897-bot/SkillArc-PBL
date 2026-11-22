@@ -5,6 +5,7 @@
     "cost": 60,
     "category": "Campus Perks",
     "icon": "☕",
+    "desc": "Redeem for 1 artisanal hot coffee or cappuccino at the campus student cafeteria.",
     "description": "Redeem for 1 artisanal hot coffee or cappuccino at the campus student cafeteria.",
     "terms": "Valid for demonstration during Phase-II evaluation."
   },
@@ -14,6 +15,7 @@
     "cost": 80,
     "category": "Swag",
     "icon": "🏷️",
+    "desc": "Pack of 5 waterproof vinyl stickers featuring C, C++, DSA, and SkillArc logos.",
     "description": "Pack of 5 waterproof vinyl stickers featuring C, C++, DSA, and SkillArc logos.",
     "terms": "Collect from Team Apex at the project stall."
   },
@@ -23,6 +25,7 @@
     "cost": 120,
     "category": "Academic",
     "icon": "📚",
+    "desc": "Guaranteed quiet-zone study desk with power outlet for 1 exam study week.",
     "description": "Guaranteed quiet-zone study desk with power outlet for 1 exam study week.",
     "terms": "Subject to campus library demonstration allocation."
   },
@@ -32,6 +35,7 @@
     "cost": 180,
     "category": "Events",
     "icon": "🎟️",
+    "desc": "Skip preliminary shortlisting and enter the 36-hour hackathon directly.",
     "description": "Skip preliminary shortlisting and enter the 36-hour hackathon directly.",
     "terms": "Demonstration student privilege for high credit achievers."
   },
@@ -41,6 +45,7 @@
     "cost": 250,
     "category": "Computing",
     "icon": "💻",
+    "desc": "10 compute hours on college high-performance NVIDIA GPU cluster for project training.",
     "description": "10 compute hours on college high-performance NVIDIA GPU cluster for project training.",
     "terms": "Granted for advanced PBL contributors."
   }
